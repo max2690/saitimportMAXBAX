@@ -1,0 +1,6 @@
+<svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="1" width="46" height="46" rx="12" stroke="#F7C948" stroke-width="2"/>
+<path d="M13 25 l8 8 16-18" stroke="#F7C948" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M35 14 l10 3 -3 10" stroke="#F7C948" stroke-width="2" fill="none"/>
+<text x="60" y="30" fill="#F7C948" font-family="Arial Black" font-size="18">MaxBax-Import</text>
+</svg>
