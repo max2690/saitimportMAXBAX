@@ -1,50 +1,46 @@
-// удалена дублирующаяся реализация Hero
-
-
-
-
-
-
 'use client';
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-export default function Hero(){
+export default function Hero() {
   const [fallback, setFallback] = useState(false);
 
   return (
-    <section className="relative overflow-hidden min-h-[88vh] lg:min-h-[94vh]">
-      {/* Фон (смещён вниз, чтобы была вода/огни) */}
+    <section className="relative overflow-hidden min-h-[90vh]">
+      {/* Фон: используем твой файл из /public/video */}
       {!fallback ? (
         <video
-          className="absolute inset-0 w-full h-full object-cover"
-          src="/assets/hero/bg.mp4"
+          className="absolute inset-0 h-full w-full object-cover opacity-70"
+          src="/video/hero.mp4"
           autoPlay
           loop
           muted
           playsInline
-          poster="/assets/hero/poster.jpg"
+          poster="/hero/hero-main-1920.jpg"
           onError={() => setFallback(true)}
           style={{ objectPosition: "50% 62%" }}
         />
       ) : (
         <div
-          className="absolute inset-0 bg-center bg-cover"
-          style={{ backgroundImage: "url('/assets/hero/poster.jpg')", backgroundPosition: "50% 62%" }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/hero/hero-main-1920.jpg')",
+            backgroundPosition: "50% 62%",
+          }}
         />
       )}
 
-      {/* Мягкие градиенты для читаемости */}
+      {/* Лёгкие градиенты: читаемо, без «черного экрана» */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/22 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-bg/55" />
       </div>
 
-      {/* Контент — ровно по центру экрана */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 h-full">
-        <div className="grid h-full gap-10 lg:grid-cols-2 place-content-center">
-          {/* Левый столбец */}
-          <div className="self-center">
+      {/* Контент — точно по центру */}
+      <div className="relative z-10 mx-auto h-full max-w-7xl px-6">
+        <div className="h-full grid lg:grid-cols-2 items-center gap-10">
+          {/* Лево: заголовок */}
+          <div>
             <motion.h1
               initial={{ y: 16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -65,12 +61,12 @@ export default function Hero(){
             </motion.p>
           </div>
 
-          {/* Правый столбец — крупный «дорогой» wordmark */}
+          {/* Право: крупный «золотой» wordmark — БЕЗ рамки */}
           <motion.div
             initial={{ x: 16, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.65, ease: "easeOut", delay: 0.1 }}
-            className="flex lg:justify-end justify-center self-center"
+            className="flex lg:justify-end justify-center"
             aria-hidden="true"
           >
             <span className="brand-wordmark lux">MaxBax-Import</span>

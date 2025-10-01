@@ -1,3 +1,37 @@
+/* Читаемый «постерный» H1 */
+.hero-heading{
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-size: clamp(42px, 6.6vw, 84px);
+  color:#fff;
+  -webkit-text-stroke: 0.45px rgba(0,0,0,.28);
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.38),
+    0 4px 10px rgba(0,0,0,.46),
+    0 18px 36px rgba(0,0,0,.30);
+}
+
+/* Золотой логотип с дорогим шиммером + мягкий «блеск» */
+.brand-wordmark.lux{
+  display:inline-block;
+  font-weight: 900;
+  font-size: clamp(48px, 7.2vw, 106px);
+  letter-spacing: .3px;
+  background: linear-gradient(90deg,#F7C948 0%,#FFE7A3 38%,#F7C948 72%,#EFB532 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow: 0 10px 28px rgba(247,201,72,.22);
+  animation: goldShimmer 6.8s linear infinite;
+}
+@keyframes goldShimmer{
+  0%{   background-position: 0% 50%; }
+  100%{ background-position: 220% 50%; }
+}
+
+/* УБРАТЬ ЛЮБЫЕ СТАРЫЕ РАМКИ, если класс .brand-plate ещё где-то остался */
+.brand-plate { all: unset; }
 /* Продающий белый заголовок */
 .hero-heading{
   font-weight: 900;
