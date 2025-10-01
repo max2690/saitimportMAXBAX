@@ -1,4 +1,3 @@
-import Requisites from "@/components/Requisites";
 import About from "@/components/About";
 import StepsRoute from "@/components/HowWeWork/StepsRoute";
 import Hero from "@/components/Hero";
@@ -44,7 +43,6 @@ export default function Page(){
       </section>
   <Team />
   <CTA />
-  <Requisites />
   <Footer />
 
   <ChatWidget />
