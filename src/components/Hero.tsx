@@ -1,62 +1,79 @@
+// удалена дублирующаяся реализация Hero
+
+
+
+
 
 
 'use client';
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Hero(){
-  return (
-    <section className="relative overflow-hidden">
-      {/* Фон (оставь свои пути при необходимости) */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover opacity-30"
-  src="/video/hero.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster="/hero/hero-main-1920.jpg"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-bg" />
+  const [fallback, setFallback] = useState(false);
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-32">
-        <div className="grid gap-12 lg:grid-cols-2 items-center">
-          {/* Левая колонка */}
-          <div>
+  return (
+    <section className="relative overflow-hidden min-h-[88vh] lg:min-h-[94vh]">
+      {/* Фон (смещён вниз, чтобы была вода/огни) */}
+      {!fallback ? (
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/assets/hero/bg.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/assets/hero/poster.jpg"
+          onError={() => setFallback(true)}
+          style={{ objectPosition: "50% 62%" }}
+        />
+      ) : (
+        <div
+          className="absolute inset-0 bg-center bg-cover"
+          style={{ backgroundImage: "url('/assets/hero/poster.jpg')", backgroundPosition: "50% 62%" }}
+        />
+      )}
+
+      {/* Мягкие градиенты для читаемости */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/22 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-bg/55" />
+      </div>
+
+      {/* Контент — ровно по центру экрана */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 h-full">
+        <div className="grid h-full gap-10 lg:grid-cols-2 place-content-center">
+          {/* Левый столбец */}
+          <div className="self-center">
             <motion.h1
-              initial={{ y: 18, opacity: 0 }}
+              initial={{ y: 16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="text-4xl sm:text-6xl font-extrabold leading-tight"
+              className="hero-heading"
             >
-              <span className="text-white">
-                Импорт из&nbsp;Китая под&nbsp;ключ
-              </span>
+              Импорт из Китая<br className="hidden sm:block" />
+              под ключ
             </motion.h1>
+
             <motion.p
-              initial={{ y: 18, opacity: 0 }}
+              initial={{ y: 16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-              className="mt-4 max-w-2xl text-lg text-white/80"
+              className="mt-4 max-w-2xl text-[17px] sm:text-lg text-white/90"
             >
               Закупка, контроль, логистика: ЖД, авиа, авто, море. Таможня, документы, шеф-монтаж. Кейсы и реальный опыт.
             </motion.p>
-            <div className="mt-8 flex gap-4">
-              <a href="#contact" className="card px-6 py-3 font-medium border-brand-gold hover:shadow-gold">Оставить заявку</a>
-              <a href="#cases" className="px-6 py-3 font-medium border border-brand-line rounded-2xl hover:bg-white/5">Наши кейсы</a>
-            </div>
           </div>
 
-          {/* Правая колонка — wordmark */}
+          {/* Правый столбец — крупный «дорогой» wordmark */}
           <motion.div
-            initial={{ x: 20, opacity: 0 }}
+            initial={{ x: 16, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.65, ease: "easeOut", delay: 0.1 }}
-            className="flex lg:justify-end justify-center"
+            className="flex lg:justify-end justify-center self-center"
             aria-hidden="true"
           >
-            <div className="brand-plate">
-              <span className="brand-wordmark">MaxBax-Import</span>
-            </div>
+            <span className="brand-wordmark lux">MaxBax-Import</span>
           </motion.div>
         </div>
       </div>
