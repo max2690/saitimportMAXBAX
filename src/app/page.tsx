@@ -1,5 +1,8 @@
+import About from "@/components/About";
+import StepsRoute from "@/components/HowWeWork/StepsRoute";
 import Hero from "@/components/Hero";
 import TransportModes from "@/components/TransportModes";
+import TelegramCTA from "@/components/TelegramCTA";
 import WhyUs from "@/components/WhyUs";
 import Cases from "@/components/Cases";
 import Process from "@/components/Process";
@@ -17,10 +20,12 @@ export default function Page(){
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLdBreadcrumbs)}} />
 
       <Hero />
-      <TransportModes />
+  <About />
+  <StepsRoute />
+  <TransportModes />
       <WhyUs />
-      <Cases />
-      <Process />
+  {/* <Cases /> удалено, чтобы не было дубля */}
+  <TelegramCTA />
       <section id="contact" className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="text-3xl font-bold">Свяжитесь с нами</h2>
         <p className="text-white/70 mt-2">Ответим в течение рабочего дня. Для срочных задач используйте чат.</p>

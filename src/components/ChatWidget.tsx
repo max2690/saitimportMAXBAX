@@ -10,8 +10,8 @@ export default function ChatWidget(){
 
   const send = async () => {
     if(!input.trim()) return;
-    const next = [...messages, { role: "user", content: input }];
-    setMessages(next);
+    const next = [...messages, { role: "user" as const, content: input }];
+    setMessages(m => [...m, { role: "user" as const, content: input }]);
     setInput("");
     const res = await fetch("/api/chat", {
       method: "POST",
@@ -19,7 +19,7 @@ export default function ChatWidget(){
       body: JSON.stringify({ messages: next })
     });
     const data = await res.json();
-    setMessages(m => [...m, { role: "assistant", content: data?.content || "Готов помочь!" }]);
+    setMessages(m => [...m, { role: "assistant" as const, content: data?.content || "Готов помочь!" }]);
   };
 
   return (
