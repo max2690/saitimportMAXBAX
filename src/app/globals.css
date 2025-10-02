@@ -1,3 +1,98 @@
+/* H1: читаемый, без «ореолов» */
+.hero-heading{
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-size: clamp(42px, 6.2vw, 78px);
+  color:#fff;
+  -webkit-text-stroke: 0.3px rgba(0,0,0,.22);
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.30),
+    0 3px 8px rgba(0,0,0,.40),
+    0 14px 28px rgba(0,0,0,.26);
+}
+
+/* Wordmark: одна строка, меньше, без рамок/свечения */
+.brand-wordmark.clean{
+  display:inline-block;
+  font-weight: 800;
+  font-size: clamp(26px, 3.8vw, 44px); /* МЕНЬШЕ */
+  letter-spacing: .2px;
+  background: linear-gradient(90deg,#F7C948 0%,#FFE7A3 40%,#F0B737 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;           /* убрали свечение */
+  box-shadow: none;            /* убрали любые рамки/тени */
+  filter: none;
+}
+.brand-wordmark.clean::before,
+.brand-wordmark.clean::after{ content:none !important; }
+.nowrap{ white-space: nowrap; }
+
+/* гарантированно отключаем старые рамки, если где-то остались */
+.brand-plate{ all:unset !important; }
+/* H1: читаемый, без «ореолов» и мыла */
+.hero-heading{
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-size: clamp(42px, 6.2vw, 78px);
+  color:#fff;
+  -webkit-text-stroke: 0.3px rgba(0,0,0,.22);
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.30),
+    0 3px 8px rgba(0,0,0,.40),
+    0 14px 28px rgba(0,0,0,.26);
+}
+
+/* Голд-вордмарк: меньше, в ОДНУ строку, без рам и агрессивного свечения */
+.brand-wordmark.clean{
+  display:inline-block;
+  font-weight: 800;
+  font-size: clamp(30px, 4.2vw, 52px);
+  letter-spacing: .2px;
+  background: linear-gradient(90deg,#F7C948 0%,#FFE7A3 40%,#F0B737 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color: transparent;
+  /* лёгкий благородный «свет» без рамки */
+  text-shadow: 0 6px 18px rgba(247,201,72,.16);
+}
+
+/* На всякий случай глушим любые старые «рамы» */
+.brand-plate{ all:unset !important; }
+/* фоновая «дорогая» сетка */
+.bg-grid{
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,.08) 1px, transparent 0),
+    linear-gradient(to bottom, rgba(247,201,72,.06), rgba(239,181,50,.06));
+  background-size: 22px 22px, 100% 100%;
+  background-position: 0 0, 0 0;
+}
+
+/* золотой номер шага с мягким свечением */
+.step-badge{
+  width: 36px; height: 36px;
+  display: inline-grid; place-items: center;
+  border-radius: 9999px;
+  font-weight: 800;
+  color: #0B1220;
+  background: linear-gradient(180deg,#F7C948 0%,#EFB532 100%);
+  box-shadow:
+    0 0 0 1px rgba(239,181,50,.45) inset,
+    0 8px 24px rgba(247,201,72,.22);
+}
+/* Золотой номер шага с мягким свечением */
+.step-badge{
+  width: 36px; height: 36px;
+  display: inline-grid; place-items: center;
+  border-radius: 9999px;
+  font-weight: 800;
+  color: #0B1220;                 /* графит на золоте */
+  background: linear-gradient(180deg,#F7C948 0%,#EFB532 100%);
+  box-shadow:
+    0 0 0 1px rgba(239,181,50,.45) inset,
+    0 8px 24px rgba(247,201,72,.22);
+}
 /* Читаемый «постерный» H1 */
 .hero-heading{
   font-weight: 900;
@@ -21,6 +116,7 @@
   background: linear-gradient(90deg,#F7C948 0%,#FFE7A3 38%,#F7C948 72%,#EFB532 100%);
   background-size: 220% 100%;
   -webkit-background-clip:text;
+  background-clip:text;
   -webkit-text-fill-color:transparent;
   text-shadow: 0 10px 28px rgba(247,201,72,.22);
   animation: goldShimmer 6.8s linear infinite;
@@ -56,6 +152,7 @@
   background: linear-gradient(90deg,#F7C948 0%,#FFE7A3 35%,#F7C948 70%,#F0B737 100%);
   background-size: 220% 100%;
   -webkit-background-clip:text;
+  background-clip:text;
   -webkit-text-fill-color:transparent;
   text-shadow: 0 10px 28px rgba(247,201,72,.22);
   animation: goldShimmer 7s linear infinite;
@@ -106,6 +203,7 @@
   letter-spacing: 0.2px;
   background: linear-gradient(90deg,#F7C948 0%,#FFE7A3 38%,#F0B737 80%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 6px 22px rgba(247,201,72,.18);
 }
@@ -188,6 +286,7 @@ html,body{
 .gold-gradient{
   background: linear-gradient(90deg, #F7C948, #FFF3B0, #F7C948);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 100%;
   animation: shine 6s linear infinite;
@@ -331,3 +430,69 @@ html,body{
   border: 1px solid rgba(247,201,72,.08);
   border-radius: 20px;
 }
+
+/* === HERO TWEAKS === */
+.hero-heading{
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-size: clamp(42px, 6.2vw, 78px);
+  color:#fff;
+  -webkit-text-stroke: 0.3px rgba(0,0,0,.22);
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.30),
+    0 3px 8px rgba(0,0,0,.40),
+    0 14px 28px rgba(0,0,0,.26);
+}
+
+/* Wordmark — компактно, одна строка, без рам/ореолов */
+.brand-wordmark.clean{
+  display:inline-block;
+  font-weight: 800;
+  font-size: clamp(26px, 3.8vw, 44px);
+  letter-spacing: .2px;
+  background: linear-gradient(90deg,#F7C948 0%,#FFE7A3 40%,#F0B737 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  box-shadow: none;
+  filter: none;
+}
+.brand-wordmark.clean::before,
+.brand-wordmark.clean::after{ content:none !important; }
+
+/* На всякий случай вырубаем старую «раму», если она где-то всплывёт */
+.brand-plate{ all:unset !important; }
+
+/* === HERO TWEAKS === */
+.hero-heading{
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-size: clamp(42px, 6.2vw, 78px);
+  color:#fff;
+  -webkit-text-stroke: 0.3px rgba(0,0,0,.22);
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.30),
+    0 3px 8px rgba(0,0,0,.40),
+    0 14px 28px rgba(0,0,0,.26);
+}
+
+/* Wordmark — компактно, одна строка, без рам/ореолов */
+.brand-wordmark.clean{
+  display:inline-block;
+  font-weight: 800;
+  font-size: clamp(26px, 3.8vw, 44px);
+  letter-spacing: .2px;
+  background: linear-gradient(90deg,#F7C948 0%,#FFE7A3 40%,#F0B737 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  box-shadow: none;
+  filter: none;
+}
+.brand-wordmark.clean::before,
+.brand-wordmark.clean::after{ content:none !important; }
+
+/* На всякий случай вырубаем старую «раму», если где-то всплывёт */
+.brand-plate{ all:unset !important; }
