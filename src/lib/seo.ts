@@ -3,7 +3,7 @@ export const jsonLdOrganization = {
   "@type": "Organization",
   "name": "MaxBax Import",
   "url": process.env.NEXT_PUBLIC_SITE_URL || "https://example.com",
-  "logo": "/logo.svg",
+  "logo": process.env.NEXT_PUBLIC_SITE_URL ? `${process.env.NEXT_PUBLIC_SITE_URL}/logo.svg` : "/logo.svg",
   "sameAs": []
 };
 

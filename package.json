@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "sh -c \"next telemetry disable || true\""
+    "postinstall": "next telemetry disable || echo Telemetry disabled"
   },
   "dependencies": {
     "autoprefixer": "^10.4.18",

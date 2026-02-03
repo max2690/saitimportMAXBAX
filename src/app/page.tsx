@@ -23,7 +23,7 @@ export default function Page(){
       <Process />
       <section id="contact" className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="text-3xl font-bold">Свяжитесь с нами</h2>
-        <p className="text-white/70 mt-2">Ответим в течение рабочего дня. Для срочных задач используйте чат.</p>
+        <p className="text-white/70 mt-2">Ответим в течение рабочего дня. Вопрос можно задать в чате или в форме ниже.</p>
         <div className="mt-6 grid lg:grid-cols-2 gap-6">
           <ContactForm />
           <div className="card p-6">

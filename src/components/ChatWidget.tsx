@@ -5,12 +5,13 @@ export default function ChatWidget(){
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<{role:'user'|'assistant', content:string}[]>([
-    { role: "assistant", content: "Привет! Я ИИ‑логист MaxBax. О чём ваш запрос по импорту?" }
+    { role: "assistant", content: "Привет! Напишите вопрос — мы ответим. Или оставьте заявку через форму ниже." }
   ]);
 
   const send = async () => {
     if(!input.trim()) return;
-    const next = [...messages, { role: "user", content: input }];
+    const userMsg: { role: "user"; content: string } = { role: "user", content: input };
+    const next = [...messages, userMsg];
     setMessages(next);
     setInput("");
     const res = await fetch("/api/chat", {
@@ -19,7 +20,7 @@ export default function ChatWidget(){
       body: JSON.stringify({ messages: next })
     });
     const data = await res.json();
-    setMessages(m => [...m, { role: "assistant", content: data?.content || "Готов помочь!" }]);
+    setMessages(m => [...m, { role: "assistant" as const, content: data?.content || "Готов помочь!" }]);
   };
 
   return (
